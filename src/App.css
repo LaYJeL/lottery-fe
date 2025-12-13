@@ -1,0 +1,39 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.app-container {
+  font-family: 'Inter', sans-serif;
+}
+
+.card {
+  background: #1a1a1a;
+  padding: 2em;
+  border-radius: 15px;
+  margin-top: 20px;
+  border: 1px solid #333;
+}
+
+.jackpot-amount {
+  font-size: 3em;
+  color: #646cff;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+button {
+  background-color: #646cff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #535bf2;
+}
