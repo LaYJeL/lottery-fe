@@ -1,0 +1,40 @@
+{
+    "welcome": {
+        "title": "Welcome to LuckyPlay",
+        "subtitle": "Your gateway to exciting competitions, lotteries, and rewards. Join thousands of players winning amazing prizes every day!",
+        "cta": "Get Started Now",
+        "features": {
+            "lottery": {
+                "title": "Lottery Tickets",
+                "description": "Purchase tickets for daily, weekly, and special lottery draws with amazing jackpots"
+            },
+            "competitions": {
+                "title": "Competitions",
+                "description": "Join exciting competitions and showcase your talents to win incredible prizes"
+            },
+            "reputation": {
+                "title": "Build Reputation",
+                "description": "Complete tasks to improve your account reputation and unlock exclusive rewards"
+            }
+        },
+        "whyChooseUs": {
+            "title": "Why Choose LuckyPlay?",
+            "secure": {
+                "title": "Secure & Verified",
+                "description": "Complete identity verification for safe transactions and fair play"
+            },
+            "reputationSystem": {
+                "title": "Reputation System",
+                "description": "Earn reputation points and unlock exclusive features and better odds"
+            },
+            "payments": {
+                "title": "Easy Payments",
+                "description": "Quick deposits and withdrawals with multiple payment methods"
+            }
+        }
+    },
+    "navbar": {
+        "logout": "Logout",
+        "profile": "Profile"
+    }
+}
