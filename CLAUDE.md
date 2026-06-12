@@ -623,3 +623,13 @@ npm run lint
 | JWT | JSON Web Token for authentication |
 | i18n | Internationalization (multi-language support) |
 | a11y | Accessibility (making app usable for all) |
+
+## Claude Code Setup
+
+- **Model: Claude Fable 5** — pinned via `.claude/settings.json`
+  (`claude-fable-5[1m]`). Do not downgrade.
+- Shared environment (MCP servers, skills, plugins) is provisioned by
+  [LaYJeL/Claude_setup](https://github.com/LaYJeL/Claude_setup) — see its
+  `PROJECTS.md` for the cross-project policy.
+- On first session in a fresh clone, consider running `/graphify .` to build
+  the codebase knowledge graph.
