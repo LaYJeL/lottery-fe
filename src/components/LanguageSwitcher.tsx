@@ -32,7 +32,7 @@ const LanguageSwitcher = ({ style }: LanguageSwitcherProps) => {
     const pickerStyle = { ...defaultStyle, ...style };
 
     const dropdownStyle = {
-        position: 'relative' as 'relative',
+        position: 'relative' as const,
         display: 'inline-block'
     };
 
@@ -52,7 +52,7 @@ const LanguageSwitcher = ({ style }: LanguageSwitcherProps) => {
 
     const contentStyle = {
         display: isOpen ? 'block' : 'none',
-        position: 'absolute' as 'absolute',
+        position: 'absolute' as const,
         right: 0,
         backgroundColor: '#1e293b',
         minWidth: '160px',
@@ -74,7 +74,7 @@ const LanguageSwitcher = ({ style }: LanguageSwitcherProps) => {
         background: 'transparent',
         border: 'none',
         width: '100%',
-        textAlign: 'left' as 'left'
+        textAlign: 'left' as const
     };
 
     return (

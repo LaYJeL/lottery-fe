@@ -12,7 +12,7 @@ const Navbar = () => {
         background: 'rgba(31, 27, 61, 0.6)',
         backdropFilter: 'blur(10px)',
         borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-        position: 'sticky' as 'sticky',
+        position: 'sticky' as const,
         top: 0,
         zIndex: 100
     };
@@ -22,7 +22,7 @@ const Navbar = () => {
         fontSize: '1.1rem',
         fontWeight: 'bold',
         color: 'var(--color-primary)',
-        textTransform: 'uppercase' as 'uppercase',
+        textTransform: 'uppercase' as const,
         letterSpacing: '1px'
     };
 

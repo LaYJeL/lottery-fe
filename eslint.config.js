@@ -6,7 +6,9 @@ import tseslint from 'typescript-eslint'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
-  globalIgnores(['dist']),
+  // `design/` is a standalone reference app (own package.json/vite config) that
+  // isn't imported by src — lint it on its own, not as part of the main app.
+  globalIgnores(['dist', 'design']),
   {
     files: ['**/*.{ts,tsx}'],
     extends: [
@@ -18,6 +20,13 @@ export default defineConfig([
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
+    },
+    rules: {
+      // Allow intentionally-unused identifiers when prefixed with `_`.
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        { argsIgnorePattern: '^_', varsIgnorePattern: '^_', caughtErrors: 'none' },
+      ],
     },
   },
 ])

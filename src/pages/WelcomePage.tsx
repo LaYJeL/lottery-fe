@@ -12,7 +12,7 @@ const WelcomePage = () => {
         background: 'radial-gradient(circle at top right, #1e293b, #0f172a)',
         color: 'white',
         fontFamily: 'var(--font-main)',
-        position: 'relative' as 'relative'
+        position: 'relative' as const
     };
 
     const heroSectionStyle = {
