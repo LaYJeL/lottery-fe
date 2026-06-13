@@ -5,18 +5,21 @@ import { authenticatedFetch } from '../api/client';
 
 const HomePage = () => {
     const { keycloak } = useKeycloak();
-    const [dbStatus, setDbStatus] = useState("Checking system...");
+    const [fetchedStatus, setFetchedStatus] = useState("Checking system...");
 
     useEffect(() => {
-        if (keycloak.authenticated) {
-            authenticatedFetch('/api/v1/health')
-                .then(res => res.text())
-                .then(data => setDbStatus(data))
-                .catch((error) => setDbStatus(`Error: ${error.message}`));
-        } else {
-            setDbStatus("PLEASE LOGIN TO PLAY");
-        }
+        if (!keycloak.authenticated) return;
+        // Guard against state updates after unmount / auth change mid-flight.
+        let cancelled = false;
+        authenticatedFetch('/api/v1/health')
+            .then(res => res.text())
+            .then(data => { if (!cancelled) setFetchedStatus(data); })
+            .catch((error) => { if (!cancelled) setFetchedStatus(`Error: ${error.message}`); });
+        return () => { cancelled = true; };
     }, [keycloak.authenticated]);
+
+    // Derive the unauthenticated message instead of setting state in the effect.
+    const dbStatus = keycloak.authenticated ? fetchedStatus : "PLEASE LOGIN TO PLAY";
 
     const systemStatus = {
         status: dbStatus.includes('Error') ? "DOWN" : "UP",

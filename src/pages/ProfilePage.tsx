@@ -1,5 +1,5 @@
 import { useKeycloak } from '@react-keycloak/web';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { userService } from '../api/userService';
 import { type UserProfileDto } from '../types/user';
 import { walletService } from '../api/walletService';
@@ -41,7 +41,7 @@ const ProfilePage = () => {
         error: ''
     });
 
-    const fetchProfile = () => {
+    const fetchProfile = useCallback(() => {
         if (keycloak.authenticated) {
             userService.getProfile()
                 .then(data => {
@@ -71,20 +71,20 @@ const ProfilePage = () => {
                 })
                 .catch(() => { /* Failed to fetch profile */ });
         }
-    };
+    }, [keycloak.authenticated]);
 
-    const fetchWallet = () => {
+    const fetchWallet = useCallback(() => {
         if (keycloak.authenticated) {
             walletService.getWalletDetails()
                 .then(data => setWallet(data))
                 .catch(() => { /* Failed to fetch wallet */ });
         }
-    };
+    }, [keycloak.authenticated]);
 
     useEffect(() => {
         fetchProfile();
         fetchWallet();
-    }, [keycloak.authenticated]);
+    }, [fetchProfile, fetchWallet]);
 
     const handleUpdate = async (e: React.FormEvent) => {
         e.preventDefault();
